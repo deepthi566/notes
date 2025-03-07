@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Job Application Tracker</h1>
+    
+    <form id="jobForm">
+        <input type="text" id="company" placeholder="Company Name" required>
+        <input type="text" id="role" placeholder="Job Role" required>
+        <select id="status">
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+        <input type="date" id="date" required>
+        <button type="submit">Add Job</button>
+    </form>
+
+    <h2>Saved Applications</h2>
+    <div>
+        <button onclick="filterJobs('All')">Show All</button>
+        <button onclick="filterJobs('Applied')">Applied</button>
+        <button onclick="filterJobs('Interview')">Interview</button>
+        <button onclick="filterJobs('Rejected')">Rejected</button>
+    
+        <select id="sortBy" onchange="sortJobs()">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+        </select>
+    </div>
+
+    <h3>Application Stats:</h3>
+    <p>Total Applications: <span id="totalApplications">0</span></p>
+    <p>Interviews: <span id="totalInterviews">0</span></p>
+    <p>Rejections: <span id="totalRejections">0</span></p>
+
+    <!-- 🔹 Resume Upload Section -->
+    <h2>Upload Resume for Matching</h2>
+    <input type="file" id="resumeUpload" accept=".txt,.pdf,.docx">
+    <button onclick="matchResume()">Match Resume</button>
+
+    <h3>Match Results:</h3>
+    <div id="matchResults"></div>
+
+    <!-- Job List Section -->
+    <div id="jobList"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
