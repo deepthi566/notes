@@ -5,51 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Job Application Tracker</h1>
-    
-    <form id="jobForm">
-        <input type="text" id="company" placeholder="Company Name" required>
-        <input type="text" id="role" placeholder="Job Role" required>
-        <select id="status">
-            <option value="Applied">Applied</option>
-            <option value="Interview">Interview</option>
-            <option value="Rejected">Rejected</option>
-        </select>
-        <input type="date" id="date" required>
-        <button type="submit">Add Job</button>
-    </form>
 
-    <h2>Saved Applications</h2>
-    <div>
-        <button onclick="filterJobs('All')">Show All</button>
-        <button onclick="filterJobs('Applied')">Applied</button>
-        <button onclick="filterJobs('Interview')">Interview</button>
-        <button onclick="filterJobs('Rejected')">Rejected</button>
-    
-        <select id="sortBy" onchange="sortJobs()">
-            <option value="newest">Newest First</option>
-            <option value="oldest">Oldest First</option>
-        </select>
+    <div class="container">
+        <h1>📌 Job Application Tracker</h1>
+
+        <!-- Job Input Form -->
+        <form id="jobForm">
+            <input type="text" id="company" placeholder="Company Name" required>
+            <input type="text" id="role" placeholder="Job Role" required>
+            <select id="status">
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+            <input type="date" id="date" required>
+            <button type="submit">➕ Add Job</button>
+        </form>
+
+        <!-- Filters and Sorting -->
+        <h2>📂 Saved Applications</h2>
+        <div class="filters">
+            <button onclick="filterJobs('All')">Show All</button>
+            <button onclick="filterJobs('Applied')">Applied</button>
+            <button onclick="filterJobs('Interview')">Interview</button>
+            <button onclick="filterJobs('Rejected')">Rejected</button>
+            <select id="sortBy" onchange="sortJobs()">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+            </select>
+        </div>
+
+        <!-- Job Application Stats -->
+        <div class="stats">
+            <p>📌 <strong>Total Applications:</strong> <span id="totalApplications">0</span></p>
+            <p>📅 <strong>Interviews:</strong> <span id="totalInterviews">0</span></p>
+            <p>❌ <strong>Rejections:</strong> <span id="totalRejections">0</span></p>
+        </div>
+
+        <!-- Job List -->
+        <div id="jobList"></div>
+
+        <!-- Resume Upload Section -->
+        <h2>📄 Upload Resume for Matching</h2>
+        <div class="resume-section">
+            <input type="file" id="resumeUpload">
+            <button onclick="matchResume()">🔍 Match Resume</button>
+        </div>
+
+        <!-- Resume Match Results -->
+        <div class="match-results">
+            <h3>✅ Match Results:</h3>
+            <p id="matchOutput">No matches yet.</p>
+        </div>
     </div>
 
-    <h3>Application Stats:</h3>
-    <p>Total Applications: <span id="totalApplications">0</span></p>
-    <p>Interviews: <span id="totalInterviews">0</span></p>
-    <p>Rejections: <span id="totalRejections">0</span></p>
-
-    <!-- 🔹 Resume Upload Section -->
-    <h2>Upload Resume for Matching</h2>
-    <input type="file" id="resumeUpload" accept=".txt,.pdf,.docx">
-    <button onclick="matchResume()">Match Resume</button>
-
-    <h3>Match Results:</h3>
-    <div id="matchResults"></div>
-
-    <!-- Job List Section -->
-    <div id="jobList"></div>
-
     <script src="script.js"></script>
+
 </body>
 </html>
+
+
+
+
+
